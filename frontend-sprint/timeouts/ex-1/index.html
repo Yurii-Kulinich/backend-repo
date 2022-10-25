@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    
+    <script src="./script.js"></script>
+    <script>
+
+const myArray = 'prout'.split("");
+
+
+
+let index = 0;
+let interval = setInterval(myCallback, 500);
+
+function myCallback() {
+
+    if(index >= myArray.length && interval != undefined) {
+        clearInterval(interval);
+        document.body.innerHTML = '';
+    } else {
+    document.body.innerHTML += myArray[index];
+    console.log(myArray[index]);
+    index++;}
+    
+    
+}
+
+
+// const intervalID = setInterval(myCallback, 500, 'Parameter 1', 'Parameter 2');
+
+// function myCallback(a, b)
+// {
+//  // Your code here
+//  // Parameters are purely optional.
+//  console.log(a);
+//  console.log(b);
+// }
+// console.log('done');
+    </script>
+</body>
+</html> 

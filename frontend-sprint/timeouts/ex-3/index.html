@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+
+    <div class="score">
+        <ul>
+            Your scsore is 0
+        </ul>
+    </div>
+
+
+    <script>
+
+        let interval = setInterval(myCallback, 1000)
+        let unordereList = document.querySelector('ul');
+        let score = 0;
+
+        let randomChild;
+
+
+        function myCallback() {
+            let randomNumber = getRandomInt();
+            
+            randomChild = document.querySelector(`.circle:nth-child(${randomNumber})`)
+            randomChild.style.backgroundColor = 'red';
+            randomChild.classList.add("red")
+
+            randomChild.addEventListener('click', weClicked, true);
+            // console.log(randomChild)
+
+            let timeOut = setTimeout(turnBack, 700)
+            
+
+        }
+
+        function weClicked() {
+            this.style.backgroundColor = 'aqua';
+            // this.innerText += 'Boom!'
+            score ++
+            unordereList.innerHTML = `your score is ${score}`;
+            
+        }
+        function turnBack() {
+            randomChild.innerText = ''
+            randomChild.style.backgroundColor = 'aqua'
+            randomChild.removeEventListener("click", weClicked, true);
+        }
+
+        function getRandomInt() {
+        return Math.floor(Math.random() * 4) + 1;
+}
+    </script>
+</body>
+</html>
