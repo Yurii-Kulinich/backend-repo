@@ -1,0 +1,87 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: #EAEAEA;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.main-container {
+    display: flex;
+    width: 90vw;
+    height: 90vh;
+    /* background-color: white; */
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dateContainer {
+    width: 30%;
+    height: 100%;
+    background-color: red;
+    border-top-left-radius: 110px;
+    border-bottom-left-radius: 110px;
+    border-bottom-right-radius: 110px;
+    border-top-right-radius: 110px;
+    display: flex;
+    flex-direction: column;
+    border: 3px solid #912c2c;
+}
+
+.dayCont {
+    width: 100%;
+    height: 20%;
+    background-color: #B03737;
+    border-top-right-radius: 110px;
+    border-top-left-radius: 110px;
+    color: white;
+    font-size: 6vw;
+    font-weight: 700;
+    justify-content: center;
+    align-items: center;
+}
+
+.monthCont {
+    width: 100%;
+    height: 80%;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.yearCont {
+    width: 100%;
+    height: 20%;
+    border-bottom-left-radius: 110px;
+    border-bottom-right-radius: 110px;
+    background-color: #B03737;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 6vw;
+    font-weight: 700;
+}
+
+.daySpan,.monthSpan {
+font-size: 10vw;
+color: #909090;
+font-weight: 800;
+}
+
+.timeContainer {
+    display: flex;
+    width: 60%;
+    height: 40%;
+    
+    font-size: 13vw;
+    color: black;
+
+}
