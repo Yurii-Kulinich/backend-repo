@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="dateContainer">
+            <div class="dayCont flex">
+                <span class="weekdDay">WED</span>
+            </div>
+            <div class="monthCont flex">
+                <span class="daySpan">07</span>
+                <span class="monthSpan">OCT</span>
+            </div>
+            <div class="yearCont flex">
+                <span class="yearSpan">2019</span>
+            </div>
+        </div>
+        <div class="timeContainer">
+            <span class="timeSpan"></span>
+        </div>
+    </div>
+    <script>
+        let weekdDay = document.querySelector('.weekdDay');
+        let dateDate = document.querySelector('.daySpan');
+        let monthDate = document.querySelector('.monthSpan');
+        let yearDate = document.querySelector('.yearSpan');
+        let timeDate = document.querySelector('.timeSpan');
+       
+        // let currentDate = new Date();
+        let interval = setInterval (newDate, 1000);
+        function newDate(){
+            let currentDate = new Date();
+            const stringDate = currentDate.toString();
+            const dateArray = stringDate.split(" ");
+            weekdDay.innerText = dateArray [0];
+            monthDate.innerText = dateArray[1];
+            dateDate.innerText = dateArray[2];
+            yearDate.innerText = dateArray[3]
+            timeDate.innerText = dateArray[4]
+            console.log(dateArray)
+            }
+        //Wed Oct 26 2022 10:45:04 GMT+0200 (Central European Summer Time)
+        // const stringDate = currentDate.toString();
+        // const dateArray = stringDate.split(" ");
+        // weekdDay.innerText = dateArray [0];
+        // monthDate.innerText = dateArray[1];
+        // dateDate.innerText = dateArray[2];
+        // yearDate.innerText = dateArray[3]
+        // timeDate.innerText = dateArray[4]
+        // console.log(dateArray)
+    </script>
+</body>
+</html>
