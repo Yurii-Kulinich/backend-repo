@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="firstname" id="firstname"/>
+    <button id="push">Push this button once you filled your name</button>
+    <select name="country-name">
+        <option value="none" selected>No country option</option>
+        <option value="ES">Spain</option>
+        <option value="FR">France</option>
+        <option value="IT">Italy</option>
+    </select>
+    <div class="main"></div>
+    <script>
+        let inputValue = document.querySelector('#firstname')
+        let buttonElem = document.querySelector('#push');
+        let bodyElement = document.querySelector('body');
+        let main = document.querySelector('.main')
+        let seelectElem = document.querySelector('select')
+        
+        let country = '';
+        let userName = '';
+        let link = 'https://api.agify.io?name='
+
+        // buttonElem.addEventListener('click', nameFunction)
+        
+        // function nameFunction(e){      
+        //     inputValue = document.querySelector('#firstname')
+        //     bodyElement.innerHTML += inputValue.value;
+        //     inputValue.value = '';
+       
+        // }
+
+        
+        seelectElem.addEventListener('change', changeCountry)
+        
+        inputValue.addEventListener('keyup', saveName);
+
+
+
+        buttonElem.addEventListener('click', function(){
+        if (country !== '') {
+            fetch(link + userName + country);
+            console.log(link + userName + country)
+        }
+            console.log(country)
+            if (country !== '' && country !== null) { 
+                fetch(link + userName + country)
+                .then(response => response.json())
+                .then(json => {
+                    if (json.age !== null) {
+                        // bodyElement.innerHTML += `<div>Your probable age is ${json.age}`
+                            console.log(json.country_id)
+                            main.innerHTML += `<div>${json.name} Your probable age is ${json.age} and your are from ${json.country_id}`
+                    }
+                    else  {
+                        console.log(link + userName)
+                        alert('try another name')
+                    }
+                    inputValue.value = ''
+                    userName = ''
+                });
+                
+            // console.log(link + userName + country)
+            } else fetch(link + userName)
+                .then(response => response.json())
+                .then(json => {
+                if (json.age !== null) {
+                    // bodyElement.innerHTML += `<div>Your probable age is ${json.age}`
+                        console.log(json.age)
+                        main.innerHTML += `<div>${json.name} your probable age is ${json.age}`
+                }
+                else  {
+                    console.log(link + userName)
+                    alert('try another name')
+                }
+                inputValue.value = ''
+                userName = ''
+            });
+            
+
+            
+        });
+
+        function changeCountry(e){
+            if (e.target.value === 'ES') country = '&country_id=ES'
+            else if (e.target.value === "IT") country = '&country_id=IT';
+            else if (e.target.value === "FR") country = '&country_id=FR';
+            else if (e.target.value === "none") country = '';
+            // console.log(country);
+        }
+
+        function saveName(e) {
+            if(e.code === 'Enter') {
+            
+            console.log(userName);
+            inputValue.value = '';
+            userName = '';
+        } else if (e.code === 'Backspace') {
+            inputValue.value = ''
+            userName = ''
+        }
+        
+        else userName += e.key;      
+        
+        
+    }
+
+    </script>
+</body>
+</html>
+
